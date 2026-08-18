@@ -1,0 +1,15 @@
+[project]
+name = "find-circle"
+version = "0.1.0"
+description = "A reproducible CNN experiment for localizing synthetic noisy circles."
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+  "matplotlib>=3.8,<4",
+  "numpy>=1.26,<3",
+  "tensorflow>=2.16,<2.19",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

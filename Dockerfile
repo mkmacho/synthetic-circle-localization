@@ -1,19 +1,8 @@
-FROM python:2.7-slim
+FROM python:3.12-slim
 
-RUN apt-get update && apt-get install -y \
-	build-essential \
-	apt-utils \
-	git \
-	libglib2.0 \	
-	tk \
-	screen \
-	vim && \
-  apt-get clean && rm -rf /var/lib/apt/lists/*
-
+WORKDIR /app
 COPY requirements.txt .
-RUN pip install -r /requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+COPY files ./files
 
-# set up app
-COPY files /files
-
-WORKDIR /files
+ENTRYPOINT ["python", "files/main.py"]
